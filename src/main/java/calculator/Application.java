@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
 
+    private static final String defaultSeparatorRegex = "[,:]";
     private static final String customSeparatorPrefix = "//";
     private static final String customSeparatorSuffix = "\\n";
 
@@ -23,7 +24,7 @@ public class Application {
     }
 
     private static String[] splitWithSeparator(String input) {
-        return input.split("[,:]");
+        return input.split(defaultSeparatorRegex);
     }
 
     private static String[] splitWithCustomSeparator(String input) {

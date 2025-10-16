@@ -11,8 +11,13 @@ public class Application {
     public static void main(String[] args) {
         String input = readInputString();
 
-        String[] tokens = input.startsWith(customSeparatorPrefix)
+        String[] values = input.startsWith(customSeparatorPrefix)
             ? splitWithCustomSeparator(input) : splitWithSeparator(input);
+
+        try {
+            validateNumbers(values);
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     private static String readInputString() {
@@ -35,5 +40,19 @@ public class Application {
         String cleanInput = withoutPrefix.substring(suffixStartIndex + 2);
 
         return cleanInput.split(customSeparator);
+    }
+
+    private static void validateNumbers(String[] values) {
+        for (String value : values)
+            if (!isPositiveInteger(value)) throw new IllegalArgumentException("잘못된 입력입니다.");
+    }
+
+    private static boolean isPositiveInteger(String value) {
+        try {
+            int num = Integer.parseInt(value);
+            return num > 0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

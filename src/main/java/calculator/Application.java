@@ -2,6 +2,8 @@ package calculator;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
+
 public class Application {
 
     private static final String defaultSeparatorRegex = "[,:]";
@@ -16,6 +18,8 @@ public class Application {
 
         try {
             validateNumbers(values);
+
+            int sum = sumNumbers(values);
         } catch (IllegalArgumentException e) {
         }
     }
@@ -54,5 +58,9 @@ public class Application {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    private static int sumNumbers(String[] values) {
+        return Arrays.stream(values).mapToInt(Integer::parseInt).sum();
     }
 }

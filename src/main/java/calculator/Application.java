@@ -16,13 +16,10 @@ public class Application {
         String[] values = input.startsWith(customSeparatorPrefix)
             ? splitWithCustomSeparator(input) : splitWithSeparator(input);
 
-        try {
-            validateNumbers(values);
+        validateNumbers(values);
 
-            int sum = sumNumbers(values);
-            System.out.println("결과 : " + sum);
-        } catch (IllegalArgumentException e) {
-        }
+        int sum = sumNumbers(values);
+        System.out.println("결과 : " + sum);
     }
 
     private static String readInputString() {

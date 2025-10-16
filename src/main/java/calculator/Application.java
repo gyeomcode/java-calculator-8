@@ -20,6 +20,7 @@ public class Application {
             validateNumbers(values);
 
             int sum = sumNumbers(values);
+            System.out.println("결과 : " + sum);
         } catch (IllegalArgumentException e) {
         }
     }

@@ -7,7 +7,7 @@ public class Application {
 
     private static final String defaultSeparatorRegex = "[,:]";
     private static final String customSeparatorPrefix = "//";
-    private static final String customSeparatorSuffix = "\\n"; // 실제 값: 1 + \(역슬래시) + n
+    private static final String customSeparatorSuffix = "\\n"; // 실제 값: \(역슬래시) + n
 
     public static void main(String[] args) {
         String input = readInputString();

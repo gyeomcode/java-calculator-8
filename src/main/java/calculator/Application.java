@@ -18,7 +18,7 @@ public class Application {
         }
 
         String[] values = input.startsWith(customSeparatorPrefix)
-            ? splitWithCustomSeparator(input) : splitWithSeparator(input);
+                ? splitWithCustomSeparator(input) : splitWithSeparator(input);
 
         validateNumbers(values);
 

@@ -1,7 +1,6 @@
 package calculator;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.Arrays;
 
 public class Application {
@@ -12,6 +11,11 @@ public class Application {
 
     public static void main(String[] args) {
         String input = readInputString();
+
+        if(input.equals("")) {
+            System.out.println("결과 : " + 0);
+            return;
+        }
 
         String[] values = input.startsWith(customSeparatorPrefix)
             ? splitWithCustomSeparator(input) : splitWithSeparator(input);

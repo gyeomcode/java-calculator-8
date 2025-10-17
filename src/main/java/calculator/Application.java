@@ -43,7 +43,7 @@ public class Application {
         int suffixStartIndex = withoutPrefix.indexOf(customSeparatorSuffix);
 
         String customSeparator = withoutPrefix.substring(0, suffixStartIndex);
-        String cleanInput = withoutPrefix.substring(suffixStartIndex + 2);
+        String cleanInput = withoutPrefix.substring(suffixStartIndex + customSeparatorSuffix.length());
 
         return cleanInput.split(customSeparator);
     }

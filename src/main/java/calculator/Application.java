@@ -13,6 +13,8 @@ public class Application {
         String input = readInputString();
 
         if(input.equals("")) {
+            // ""(빈 문자열)을 defaultSeparatorRegex로 split하면 결과는 [""]
+            // 따라서 validateNumbers() 실행시 예외가 발생해 얼리 리턴
             System.out.println("결과 : " + 0);
             return;
         }

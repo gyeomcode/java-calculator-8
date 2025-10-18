@@ -15,7 +15,7 @@ public class Application {
         String[] values = input.startsWith(customSeparatorPrefix)
                 ? splitWithCustomSeparator(input) : splitWithSeparator(input);
 
-        if(values.length == 1 && values[0].equals("")) {
+        if (values.length == 1 && values[0].equals("")) {
             // ""(빈 문자열)을 defaultSeparatorRegex로 split하면 결과는 [""]
             // 따라서 validateNumbers() 실행시 예외가 발생해 얼리 리턴
             System.out.println("결과 : " + 0);
@@ -51,8 +51,11 @@ public class Application {
     }
 
     private static void validateNumbers(String[] values) {
-        for (String value : values)
-            if (!isPositiveInteger(value)) throw new IllegalArgumentException("잘못된 입력입니다.");
+        for (String value : values) {
+            if (!isPositiveInteger(value)) {
+                throw new IllegalArgumentException("잘못된 입력입니다.");
+            }
+        }
     }
 
     private static boolean isPositiveInteger(String value) {

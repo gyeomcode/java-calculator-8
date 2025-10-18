@@ -12,15 +12,15 @@ public class Application {
     public static void main(String[] args) {
         String input = readInputString();
 
-        if(input.equals("")) {
+        String[] values = input.startsWith(customSeparatorPrefix)
+                ? splitWithCustomSeparator(input) : splitWithSeparator(input);
+
+        if(values.length == 1 && values[0].equals("")) {
             // ""(빈 문자열)을 defaultSeparatorRegex로 split하면 결과는 [""]
             // 따라서 validateNumbers() 실행시 예외가 발생해 얼리 리턴
             System.out.println("결과 : " + 0);
             return;
         }
-
-        String[] values = input.startsWith(customSeparatorPrefix)
-                ? splitWithCustomSeparator(input) : splitWithSeparator(input);
 
         validateNumbers(values);
 
